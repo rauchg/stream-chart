@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { getPriceData } from "@/lib/data";
 import { ShellDemo } from "./shell-demo";
+import { A, Code } from "@/components/markup";
 
 async function getChartData(ticker = "XDGUSD") {
   const data = await getPriceData(ticker);
@@ -57,12 +58,18 @@ export default function Home({
           <p>
             This demo shows off Next.js App Router with RSC streaming a{" "}
             <Code>Promise</Code> (
-            <A href="https://github.com/rauchg/stream-chart/blob/main/app/page.tsx#L50">
+            <A
+              href="https://github.com/rauchg/stream-chart/blob/main/app/page.tsx#L50"
+              tr="src-promise"
+            >
               source
             </A>
             ) from the server which gets <Code>use()</Code>
             &rsquo;d by the client (
-            <A href="https://github.com/rauchg/stream-chart/blob/main/app/chart.tsx#L11">
+            <A
+              href="https://github.com/rauchg/stream-chart/blob/main/app/chart.tsx#L11"
+              tr="src-use"
+            >
               source
             </A>
             ).
@@ -83,7 +90,10 @@ export default function Home({
 
           <p>
             The best part: thanks to{" "}
-            <A href="https://vercel.com/blog/partial-prerendering-with-next-js-creating-a-new-default-rendering-model">
+            <A
+              href="https://vercel.com/blog/partial-prerendering-with-next-js-creating-a-new-default-rendering-model"
+              tr="ppr"
+            >
               PPR
             </A>
             , the <ShellDemo /> is instantly &amp; statically delivered by the
@@ -93,28 +103,30 @@ export default function Home({
           <hr />
 
           <p>
-            Deployed on <A href="https://vercel.com/home">Vercel</A> (
-            <A href="https://github.com/rauchg/stream-chart">source</A>). Data
-            by <A href="https://docs.kraken.com/rest/">Kraken API</A>. Charts by{" "}
-            <A href="https://www.tremor.so/">Tremor</A> &amp;{" "}
-            <A href="https://recharts.org/">Recharts</A>.
+            Deployed on{" "}
+            <A href="https://vercel.com/home" tr="vercel">
+              Vercel
+            </A>{" "}
+            (
+            <A href="https://github.com/rauchg/stream-chart" tr="src-main">
+              source
+            </A>
+            ). Data by{" "}
+            <A href="https://docs.kraken.com/rest/" tr="kraken">
+              Kraken API
+            </A>
+            . Charts by{" "}
+            <A href="https://www.tremor.so/" tr="tremor">
+              Tremor
+            </A>{" "}
+            &amp;{" "}
+            <A href="https://recharts.org/" tr="recharts">
+              Recharts
+            </A>
+            .
           </p>
         </div>
       </main>
     </>
-  );
-}
-
-function Code({ children }: { children: React.ReactNode }) {
-  return (
-    <code className="bg-gray-200 p-1 rounded-md text-gray-700">{children}</code>
-  );
-}
-
-function A({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a className="border-b pb-.5 border-gray-400" href={href} target="_blank">
-      {children}
-    </a>
   );
 }
