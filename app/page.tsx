@@ -56,8 +56,16 @@ export default function Home({
         <div className="font-mono text-sm flex flex-col gap-5 max-w-2xl">
           <p>
             This demo shows off Next.js App Router with RSC streaming a{" "}
-            <Code>Promise</Code> from the server which gets <Code>use()</Code>
-            &rsquo;d by the client.
+            <Code>Promise</Code> (
+            <A href="https://github.com/rauchg/stream-chart/blob/main/app/page.tsx#L50">
+              source
+            </A>
+            ) from the server which gets <Code>use()</Code>
+            &rsquo;d by the client (
+            <A href="https://github.com/rauchg/stream-chart/blob/main/app/chart.tsx#L11">
+              source
+            </A>
+            ).
           </p>
 
           <p>
