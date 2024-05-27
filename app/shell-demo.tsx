@@ -4,7 +4,7 @@ import { useState } from "react";
 const IMAGE_WIDTH = 347;
 const IMAGE_HEIGHT = 313;
 const IMAGE_URL =
-  "https://rjj2qyxxex49xrmy.public.blob.vercel-storage.com/shell-vez8UMINzmHzi3mSRzhHQW9wxOoIEd.png";
+  "https://g8ns89enncyakakf.public.blob.vercel-storage.com/shell-wMYBcvpftEjK2adsyKjTfROO60KnBb.png";
 
 export function ShellDemo() {
   const [coords, setCoords] = useState<{ x: number; y: number } | null>(null);
