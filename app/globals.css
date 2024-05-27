@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-gray-100;
+}
+
+body {
+  font-synthesis: none;
+}
+
+::selection {
+  @apply bg-amber-200;
+}
