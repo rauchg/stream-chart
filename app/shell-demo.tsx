@@ -14,7 +14,7 @@ export function ShellDemo() {
       <link rel="preload" href={IMAGE_URL} as="image" />
 
       <span
-        className="bg-white p-1 rounded-md whitespace-nowrap inline-block"
+        className="bg-white text-gray-700 dark:text-gray-300 dark:bg-gray-800 p-1 rounded-md whitespace-nowrap inline-block"
         onMouseMove={(e) => {
           setCoords({ x: e.clientX, y: e.clientY });
         }}

@@ -34,7 +34,7 @@ export default function Home({
   return (
     <>
       <main className="font-sans flex items-center min-h-dvh justify-start sm:justify-center flex-col gap-10 p-5">
-        <div className="flex max-w-3xl w-full bg-white p-7 rounded-xl">
+        <div className="flex max-w-3xl w-full bg-white dark:bg-gray-800 p-7 rounded-xl">
           <div className="flex h-80 w-full items-center justify-center">
             <ErrorBoundary
               fallback={
