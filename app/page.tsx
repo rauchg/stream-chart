@@ -4,6 +4,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { getPriceData } from "@/lib/data";
 import { ShellDemo } from "./shell-demo";
 import { A, Code } from "@/components/markup";
+import { Card } from "@/components/ui/card";
 
 async function getChartData(ticker = "XDGUSD") {
   const data = await getPriceData(ticker);
@@ -14,11 +15,9 @@ async function getChartData(ticker = "XDGUSD") {
 
   let convertedData = data.result.slice(-12).map((elem) => {
     let date = new Date(elem[0] * 1000);
-    let formattedDate =
-      date.toLocaleString("default", { month: "short" }) + " " + date.getDate();
     let averagePrice = (parseFloat(elem[2]) + parseFloat(elem[3])) / 2;
     return {
-      date: formattedDate,
+      date: date.toISOString(),
       DOGE: averagePrice,
     };
   });
@@ -33,9 +32,9 @@ export default function Home({
 }) {
   return (
     <>
-      <main className="font-sans flex items-center min-h-dvh justify-start sm:justify-center flex-col gap-10 p-5">
-        <div className="flex max-w-3xl w-full bg-white dark:bg-gray-800 p-7 rounded-xl">
-          <div className="flex h-80 w-full items-center justify-center">
+      <main className="font-sans flex items-center min-h-dvh justify-start sm:justify-center flex-col gap-7 p-5">
+        <div className="w-full max-w-3xl">
+          <Card className="grid md:aspect-[16/11] aspect-square flex-col w-full">
             <ErrorBoundary
               fallback={
                 <span className="text-sm text-red-600">
@@ -45,13 +44,15 @@ export default function Home({
             >
               <Suspense
                 fallback={
-                  <span className="text-sm text-gray-400">Fetching price…</span>
+                  <span className="justify-self-center self-center text-sm text-gray-400">
+                    Fetching price…
+                  </span>
                 }
               >
                 <Chart chartData={getChartData(searchParams.ticker)} />
               </Suspense>
             </ErrorBoundary>
-          </div>
+          </Card>
         </div>
 
         <div className="font-mono text-sm flex flex-col gap-5 max-w-2xl">
@@ -116,8 +117,8 @@ export default function Home({
               Kraken API
             </A>
             . Charts by{" "}
-            <A href="https://www.tremor.so/" tr="tremor">
-              Tremor
+            <A href="https://ui.shadcn.com/" tr="tremor">
+              shadcn
             </A>{" "}
             &amp;{" "}
             <A href="https://recharts.org/" tr="recharts">
