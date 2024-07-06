@@ -4,7 +4,9 @@ import { useState } from "react";
 const IMAGE_WIDTH = 347;
 const IMAGE_HEIGHT = 313;
 const IMAGE_URL =
-  "https://g8ns89enncyakakf.public.blob.vercel-storage.com/shell-wMYBcvpftEjK2adsyKjTfROO60KnBb.png";
+  "https://g8ns89enncyakakf.public.blob.vercel-storage.com/screenshot-xxiBZ7us4YltZzHys62XTnBhw6zEgc.png";
+const IMAGE_URL_DARK =
+  "https://g8ns89enncyakakf.public.blob.vercel-storage.com/screenshot-dark-klL6xoFDU7npJmWC5CSXpmHY1ZIEwQ.png";
 
 export function ShellDemo() {
   const [coords, setCoords] = useState<{ x: number; y: number } | null>(null);
@@ -12,9 +14,15 @@ export function ShellDemo() {
   return (
     <>
       <link rel="preload" href={IMAGE_URL} as="image" />
+      <link
+        rel="preload"
+        href={IMAGE_URL_DARK}
+        as="image"
+        media="(prefers-color-scheme: dark)"
+      />
 
       <span
-        className="bg-white text-gray-700 dark:text-gray-300 dark:bg-gray-800 p-1 rounded-md whitespace-nowrap inline-block"
+        className="bg-muted text-muted-foreground p-1 rounded-md whitespace-nowrap inline-block"
         onMouseMove={(e) => {
           setCoords({ x: e.clientX, y: e.clientY });
         }}
@@ -40,9 +48,16 @@ export function ShellDemo() {
           <img
             width={IMAGE_WIDTH}
             height={IMAGE_HEIGHT}
-            className="rounded-md"
+            className="rounded-md dark:hidden"
             alt="Screenshot of the PPR shell, showing no chart loaded, instead rendering its fallback"
             src={IMAGE_URL}
+          />
+          <img
+            width={IMAGE_WIDTH}
+            height={IMAGE_HEIGHT}
+            className="rounded-md hidden dark:inline-block"
+            alt="Screenshot of the PPR shell, showing no chart loaded, instead rendering its fallback"
+            src={IMAGE_URL_DARK}
           />
         </span>
       )}

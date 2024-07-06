@@ -4,7 +4,7 @@ import { track } from "@vercel/analytics";
 
 export function Code({ children }: { children: React.ReactNode }) {
   return (
-    <code className="bg-gray-200 dark:bg-gray-800 p-1 rounded-md text-gray-700 dark:text-gray-300">
+    <code className="bg-muted p-1 text-muted-foreground rounded-md">
       {children}
     </code>
   );
@@ -21,7 +21,7 @@ export function A({
 }) {
   return (
     <a
-      className="border-b pb-.5 border-gray-400 dark:border-gray-600"
+      className="border-b pb-.5"
       href={href}
       target="_blank"
       onClick={() => track(`link-${tr}`)}
