@@ -50,6 +50,8 @@ export function Chart({
               left: 12,
               right: 12,
             }}
+            width={700}
+            height={400}
           >
             <CartesianGrid vertical={false} />
             <XAxis
