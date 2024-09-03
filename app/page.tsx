@@ -30,6 +30,12 @@ export default function Home({
 }: {
   searchParams: { ticker: string };
 }) {
+  async function ChartWithData() {
+    // in the future `searchParams` will be async
+    const chartData = getChartData((await searchParams).ticker);
+    return <Chart chartData={chartData} />;
+  }
+
   return (
     <>
       <main className="font-sans flex items-center min-h-dvh justify-start sm:justify-center flex-col gap-7 p-5">
@@ -49,7 +55,7 @@ export default function Home({
                   </span>
                 }
               >
-                <Chart chartData={getChartData(searchParams.ticker)} />
+                <ChartWithData />
               </Suspense>
             </ErrorBoundary>
           </Card>
