@@ -31,7 +31,6 @@ export default function Home({
   searchParams: Promise<{ ticker: string }>;
 }) {
   async function ChartWithData() {
-    // in the future `searchParams` will be async
     const chartData = getChartData((await searchParams).ticker);
     return <Chart chartData={chartData} />;
   }
