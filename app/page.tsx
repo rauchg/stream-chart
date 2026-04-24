@@ -28,7 +28,7 @@ async function getChartData(ticker = "XDGUSD") {
 export default function Home({
   searchParams,
 }: {
-  searchParams: { ticker: string };
+  searchParams: Promise<{ ticker: string }>;
 }) {
   async function ChartWithData() {
     // in the future `searchParams` will be async
